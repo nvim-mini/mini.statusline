@@ -1,14 +1,11 @@
 --- *mini.statusline* Statusline
---- *MiniStatusline*
 ---
 --- MIT License Copyright (c) 2021 Evgeni Chasnovski
----
---- ==============================================================================
----
+
 --- Features:
 --- - Define own custom statusline structure for active and inactive windows.
 ---   This is done with a function which should return string appropriate for
----   |statusline|. Its code should be similar to default one with structure:
+---   |'statusline'|. Its code should be similar to default one with structure:
 ---     - Compute string data for every section you want to be displayed.
 ---     - Combine them in groups with |MiniStatusline.combine_groups()|.
 ---
@@ -23,13 +20,13 @@
 ---
 --- - Nerd font (to support extra icons).
 ---
---- - Enabled |MiniIcons| module for |MiniStatusline.section_fileinfo()|.
+--- - Enabled |mini.icons| module for |MiniStatusline.section_fileinfo()|.
 ---   Falls back to using 'nvim-tree/nvim-web-devicons' plugin or shows nothing.
 ---
---- - Enabled |MiniGit| module for |MiniStatusline.section_git()|.
+--- - Enabled |mini.git| module for |MiniStatusline.section_git()|.
 ---   Falls back to using 'lewis6991/gitsigns.nvim' plugin or shows nothing.
 ---
---- - Enabled |MiniDiff| module for |MiniStatusline.section_diff()|.
+--- - Enabled |mini.diff| module for |MiniStatusline.section_diff()|.
 ---   Falls back to using 'lewis6991/gitsigns.nvim' plugin or shows nothing.
 ---
 --- # Setup ~
@@ -48,24 +45,24 @@
 ---
 --- # Highlight groups ~
 ---
---- Highlight depending on mode (second output from |MiniStatusline.section_mode|):
---- * `MiniStatuslineModeNormal` - Normal mode.
---- * `MiniStatuslineModeInsert` - Insert mode.
---- * `MiniStatuslineModeVisual` - Visual mode.
---- * `MiniStatuslineModeReplace` - Replace mode.
---- * `MiniStatuslineModeCommand` - Command mode.
---- * `MiniStatuslineModeOther` - other modes (like Terminal, etc.).
+--- Highlight depending on mode (second |MiniStatusline.section_mode()| output):
+--- - `MiniStatuslineModeNormal` - Normal mode.
+--- - `MiniStatuslineModeInsert` - Insert mode.
+--- - `MiniStatuslineModeVisual` - Visual mode.
+--- - `MiniStatuslineModeReplace` - Replace mode.
+--- - `MiniStatuslineModeCommand` - Command mode.
+--- - `MiniStatuslineModeOther` - other modes (like Terminal, etc.).
 ---
 --- Highlight used in default statusline:
---- * `MiniStatuslineDevinfo` - for "dev info" group
----   (|MiniStatusline.section_git| and |MiniStatusline.section_diagnostics|).
---- * `MiniStatuslineFilename` - for |MiniStatusline.section_filename| section.
---- * `MiniStatuslineFileinfo` - for |MiniStatusline.section_fileinfo| section.
+--- - `MiniStatuslineDevinfo` - for "dev info" group
+---   (|MiniStatusline.section_git()| and |MiniStatusline.section_diagnostics()|).
+--- - `MiniStatuslineFilename` - for |MiniStatusline.section_filename()| section.
+--- - `MiniStatuslineFileinfo` - for |MiniStatusline.section_fileinfo()| section.
 ---
 --- Other groups:
---- * `MiniStatuslineInactive` - highliting in not focused window.
+--- - `MiniStatuslineInactive` - highliting in not focused window.
 ---
---- To change any highlight group, modify it directly with |:highlight|.
+--- To change any highlight group, set it directly with |nvim_set_hl()|.
 ---
 --- # Disabling ~
 ---
@@ -74,6 +71,7 @@
 --- Considering high number of different scenarios and customization
 --- intentions, writing exact rules for disabling module's functionality is
 --- left to user. See |mini.nvim-disabling-recipes| for common recipes.
+---@tag MiniStatusline
 
 --- Example content
 ---
@@ -151,9 +149,7 @@ MiniStatusline.setup = function(config)
   H.create_default_hl()
 end
 
---- Module config
----
---- Default values:
+--- Defaults ~
 ---@eval return MiniDoc.afterlines_to_code(MiniDoc.current.eval_section)
 MiniStatusline.config = {
   -- Content of statusline as functions which return statusline string. See
@@ -256,7 +252,7 @@ end
 
 --- Section for Git information
 ---
---- Shows Git summary from |MiniGit| (should be set up; recommended). To tweak
+--- Shows Git summary from |mini.git| (should be set up; recommended). To tweak
 --- formatting of what data is shown, modify buffer-local summary string directly
 --- as described in |MiniGit-examples|.
 ---
@@ -281,7 +277,7 @@ end
 
 --- Section for diff information
 ---
---- Shows diff summary from |MiniDiff| (should be set up; recommended). To tweak
+--- Shows diff summary from |mini.diff| (should be set up; recommended). To tweak
 --- formatting of what data is shown, modify buffer-local summary string directly
 --- as described in |MiniDiff-diff-summary|.
 ---
@@ -315,7 +311,7 @@ end
 ---@param args __statusline_args Use `args.icon` to supply your own icon.
 ---   Use `args.signs` to use custom signs per severity level name. For example: >lua
 ---
----     { ERROR = '!', WARN = '?', INFO = '@', HINT = '*' }
+---   { ERROR = '!', WARN = '?', INFO = '@', HINT = '*' }
 --- <
 ---@return __statusline_section
 MiniStatusline.section_diagnostics = function(args)
