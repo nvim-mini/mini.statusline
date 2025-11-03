@@ -9,15 +9,17 @@ See more details in [Features](#features) and [Documentation](doc/mini-statuslin
 > [!NOTE]
 > This was previously hosted at a personal `echasnovski` GitHub account. It was transferred to a dedicated organization to improve long term project stability. See more details [here](https://github.com/nvim-mini/mini.nvim/discussions/1970).
 
-⦿ This is a part of [mini.nvim](https://github.com/nvim-mini/mini.nvim) library. Please use [this link](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-statusline.md) if you want to mention this module.
+⦿ This is a part of [mini.nvim](https://nvim-mini.org/mini.nvim) library. Please use [this link](https://nvim-mini.org/mini.nvim/readmes/mini-statusline) if you want to mention this module.
 
 ⦿ All contributions (issues, pull requests, discussions, etc.) are done inside of 'mini.nvim'.
 
-⦿ See the repository page to learn about common design principles and configuration recipes.
+⦿ See [whole library documentation](https://nvim-mini.org/mini.nvim/doc/mini-nvim) to learn about general design principles, disable/configuration recipes, and more.
+
+⦿ See [MiniMax](https://nvim-mini.org/MiniMax) for a full config example that uses this module.
 
 ---
 
-If you want to help this project grow but don't know where to start, check out [contributing guides of 'mini.nvim'](https://github.com/nvim-mini/mini.nvim/blob/main/CONTRIBUTING.md) or leave a Github star for 'mini.nvim' project and/or any its standalone Git repositories.
+If you want to help this project grow but don't know where to start, check out [contributing guides of 'mini.nvim'](https://nvim-mini.org/mini.nvim/CONTRIBUTING) or leave a Github star for 'mini.nvim' project and/or any its standalone Git repositories.
 
 ## Demo
 
@@ -36,9 +38,9 @@ https://user-images.githubusercontent.com/24854248/173045208-42463c8f-a2ac-488d-
 
 For full experience needs (still works without any of suggestions):
 
-- [Nerd font](https://www.nerdfonts.com/) and enabled ['mini.icons'](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-icons.md) module to show filetype icons. Can fall back to using [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) plugin.
+- [Nerd font](https://www.nerdfonts.com/) and enabled ['mini.icons'](https://nvim-mini.org/mini.nvim/readmes/mini-icons) module to show filetype icons. Can fall back to using [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) plugin.
 
-- Enabled ['mini.git'](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-git.md) and ['mini.diff'](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-diff.md) modules to show Git and diff related information. Can fall back to using [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) plugin.
+- Enabled ['mini.git'](https://nvim-mini.org/mini.nvim/readmes/mini-git) and ['mini.diff'](https://nvim-mini.org/mini.nvim/readmes/mini-diff) modules to show Git and diff related information. Can fall back to using [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) plugin.
 
 ## Installation
 
@@ -52,7 +54,7 @@ There are two branches to install from:
 Here are code snippets for some common installation methods (use only one):
 
 <details>
-<summary>With <a href="https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-deps.md">mini.deps</a></summary>
+<summary>With <a href="https://nvim-mini.org/mini.nvim/readmes/mini-deps">mini.deps</a></summary>
 
 - 'mini.nvim' library:
 
